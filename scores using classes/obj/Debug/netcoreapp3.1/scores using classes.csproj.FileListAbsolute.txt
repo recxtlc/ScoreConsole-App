@@ -1,0 +1,11 @@
+C:\Users\USER\source\repos\scores using classes\scores using classes\bin\Debug\netcoreapp3.1\scores using classes.exe
+C:\Users\USER\source\repos\scores using classes\scores using classes\bin\Debug\netcoreapp3.1\scores using classes.deps.json
+C:\Users\USER\source\repos\scores using classes\scores using classes\bin\Debug\netcoreapp3.1\scores using classes.runtimeconfig.json
+C:\Users\USER\source\repos\scores using classes\scores using classes\bin\Debug\netcoreapp3.1\scores using classes.runtimeconfig.dev.json
+C:\Users\USER\source\repos\scores using classes\scores using classes\bin\Debug\netcoreapp3.1\scores using classes.dll
+C:\Users\USER\source\repos\scores using classes\scores using classes\bin\Debug\netcoreapp3.1\scores using classes.pdb
+C:\Users\USER\source\repos\scores using classes\scores using classes\obj\Debug\netcoreapp3.1\scores using classes.csprojAssemblyReference.cache
+C:\Users\USER\source\repos\scores using classes\scores using classes\obj\Debug\netcoreapp3.1\scores using classes.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\scores using classes\scores using classes\obj\Debug\netcoreapp3.1\scores using classes.AssemblyInfo.cs
+C:\Users\USER\source\repos\scores using classes\scores using classes\obj\Debug\netcoreapp3.1\scores using classes.dll
+C:\Users\USER\source\repos\scores using classes\scores using classes\obj\Debug\netcoreapp3.1\scores using classes.pdb
