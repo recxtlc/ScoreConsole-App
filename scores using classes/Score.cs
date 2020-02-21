@@ -7,10 +7,10 @@ namespace ScoreNamespace
    public class Score
     {
         private float[] scores = new float[0];
-        private float highest = 0.0f;
-        private float lowest=0.0f;
-        private float average;
-        int count = 0;
+        private float highest ;
+        private float lowest;
+        //private float average;
+        private int count ;
         
         public float Highest { get; set; }
         public float Lowest { get; set; }
@@ -21,7 +21,11 @@ namespace ScoreNamespace
         public Score()
         {
             count = 0;
-        }
+            highest = 0.0f;
+            lowest = 0.0f;
+          //  average = 0.0f;
+           
+    }
 
         private float CalcHighest()
         {
@@ -64,10 +68,41 @@ namespace ScoreNamespace
             }
             return total / scores.Length;
         }
+        
+        private  float ConvertStrToFloat(string strScore)
+        {
+            float givenScore;
+
+            while (!float.TryParse(strScore, out givenScore)|| givenScore >100 || givenScore <0)
+            {
+                    if (givenScore == 999)
+                          break;
+                if(givenScore > 100 && givenScore !=999)
+                {
+                    Display();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.Write("\t\t\t\t\t\tNumbers must be between{0-100}\n\t\t\t\t\t\tenter score: ");
+                    Console.ResetColor();
+                }else
+                {
+                    Display();
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.Write("\t\t\t\t\t\tplease enter float numbers only\n\t\t\t\t\t\tenter score: ");
+                    Console.ResetColor();
+
+                }
+
+                strScore = Console.ReadLine();
+            }
+            Console.ResetColor();
+            givenScore = float.Parse(strScore);
+            return givenScore;
+        }
+
 
         public void store()
         {
-
+            
             Highest = CalcHighest();
             Lowest = CalcLowest();
             Average = CalcAverage();
@@ -75,22 +110,46 @@ namespace ScoreNamespace
            
         }
 
-    
+        public void Display ()
+        {
+            Console.Clear();
+            
+            Console.Write("******************************************************************************************************");
+            Console.WriteLine("\n\t\t\t\t\t\tSCORE CONSOLE APP\n\t\t\t\t\t\t-{USE 999 TO EXIT}-");
+            Console.WriteLine("************************************************************************************************");
+          
+
+        }
+
         public void prompt ()
         {
             float givenScore = 0;
             string strScore = "";
-         
+            var addedCount = 1;
             do
             {
 
-
-                Console.Write("enter score: ");
+                Console.WriteLine("\t\t\t\t\t\t");
+                Console.Write("\t\t\t\t\t\tenter score: ");
                 strScore = Console.ReadLine();
              
-                givenScore = convertStrToFloat(ref strScore);
-
-                AddScore(givenScore);
+                givenScore = ConvertStrToFloat(strScore);
+                if(givenScore == 999)
+                {
+                    Console.WriteLine("\n\t\t\t\t\t\t    GOOD BYE\n\t\t\t\t\t\tResults Are");
+                    Environment.Exit(0);
+                }else
+                {
+                  
+                    AddScore(givenScore);
+                    
+                    Display();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\t\t\t\t\t\tscore added{"+ addedCount + "}");
+                    Console.ResetColor();
+                    addedCount++;
+                }
+              
 
             } while (givenScore != 999);
 
@@ -118,45 +177,20 @@ namespace ScoreNamespace
 
         
 
-        private static float convertStrToFloat(ref string strScore)
+
+
+        public void Message()
         {
-            float givenScore;
-            while (!float.TryParse(strScore, out givenScore))
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                
-                Console.Write("please enter float numbers only\nenter score: ");
-                strScore = Console.ReadLine();
-            }
-            Console.ResetColor();
-            givenScore = float.Parse(strScore);
-            return givenScore;
-        }
+            Console.WriteLine($"\t\t\t\t\t\tLowest:  {Lowest:N2}");
+            Console.WriteLine($"\t\t\t\t\t\tHighest:  {Highest:N2}");
 
-
-     
-        public  void Message()
-        {
-            Console.WriteLine("lowest: " + Lowest);
-            Console.WriteLine("highest: " + Highest);
-
-            Console.WriteLine("Average: " + Average);
+            Console.WriteLine($"\t\t\t\t\t\tAverage: {Average:N2}");
 
 
         }
 
     
-        public void print()
-        {
-            var i = 0;
-            foreach (var score in scores)
-            {
-
-                Console.WriteLine("scores in index\t" +   i   +  "\nscores: "  + score);
-                i++;
-            }
-        }
-
+    
        
 
     }

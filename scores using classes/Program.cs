@@ -8,14 +8,13 @@ namespace scores_using_classes
         static void Main(string[] args)
         {
             Score scoresObj = new Score();
-
+            
+            scoresObj.Display();
             scoresObj.prompt();
             scoresObj.store();
             scoresObj.Message();
 
-            scoresObj.print();
 
-            
 
         }
     }

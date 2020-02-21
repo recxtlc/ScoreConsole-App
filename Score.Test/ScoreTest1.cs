@@ -78,7 +78,7 @@ namespace ScoreNamespace.Test
 
             // Assert
             
-            Assert.Equal(55.78, average, 1);
+            Assert.Equal(55.7, average, 1);
 
 
         }
